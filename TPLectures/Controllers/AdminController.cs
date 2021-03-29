@@ -10,9 +10,10 @@ namespace TPLectures.Controllers
 {
     public class AdminController : Controller
     {
+        LecturesContext context = new LecturesContext();
         public IActionResult Index()
         {
-            LecturesContext context = new LecturesContext();
+            
             List<Livre> livres = context.Livre.ToList();
             String titre = "Accès administration";
 
@@ -24,8 +25,8 @@ namespace TPLectures.Controllers
         }
         public IActionResult Lecture(int id)
         {
-            LecturesContext context = new LecturesContext();
-            Livre livre = context.Find(id);
+
+            Livre livre = context.Livre.Find(id);
             String titre = "Un livre";
             if (livre == null)
             {
@@ -40,13 +41,13 @@ namespace TPLectures.Controllers
         }
         public IActionResult Delete(int id)
         {
-            LivreDB.Delete(id);
+            context.Remove(id);
             return RedirectToAction("Index");
         }
 
         public IActionResult Modifier(int id)
         {
-            Livre livre = LivreDB.Find(id);
+            Livre livre = context.Livre.Find(id);
             String titre = "Un livre";
             ModifierAdminViewModel model = new ModifierAdminViewModel();
             model.Livre = livre;
@@ -56,7 +57,7 @@ namespace TPLectures.Controllers
         [HttpPost]
         public IActionResult ConfirmationModif(Livre livre)
         {
-            LivreDB.Update(livre);
+            context.Add(livre);
             return RedirectToAction("Index");
         }
     }
