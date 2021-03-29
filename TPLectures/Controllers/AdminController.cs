@@ -59,14 +59,40 @@ namespace TPLectures.Controllers
         [HttpPost]
         public IActionResult ConfirmationModif(Livre livre)
         {
+            
             if (livre != null)
             {
-                context.Add(context.Livre.Find(livre));
+                context.Update(livre);
                 context.SaveChanges();
             }
 
 
 
+
+            return RedirectToAction("Index");
+        }
+        public IActionResult Ajouter()
+        {
+            
+            
+            Livre livre = new Livre();
+            AjouterAdminViewModel model = new AjouterAdminViewModel();
+            model.Identifiant = livre.Identifiant;
+            model.Titre = livre.Titre;
+            model.NombrePages = livre.NombrePages;
+            model.Isbn= livre.Isbn;
+            model.Note = livre.Note;
+            model.DateEdition = livre.DateEdition;
+            model.DateLecture = livre.DateLecture;
+            model.Edition = livre.Edition;
+            model.Resume = livre.Resume;
+            model.Commentaire = livre.Commentaire;
+            return View(model);
+        }
+        public IActionResult ConfirmationAjout(Livre livre)
+        {
+                context.Add(livre);
+                context.SaveChanges();
 
             return RedirectToAction("Index");
         }

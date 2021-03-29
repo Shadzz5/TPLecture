@@ -1,0 +1,70 @@
+﻿@{ 
+    Layout = "_Layout";
+}
+@model AjouterAdminViewModel
+
+<form action="/Admin/ConfirmationAjout" method="post">
+
+    <label>
+        Identifiant : @Model.Identifiant
+    </label>
+    <input type="hidden" value="@Model.Identifiant" name="Identifiant" />
+
+    <label>
+        Nombre de pages :
+    </label>
+
+    <input type="text" name="NombrePages" value="@Model.NombrePages" />
+
+    <label>
+        Titre :
+    </label>
+
+    <input type="text" name="Titre" value="@Model.Titre" />
+
+    <label>
+        Edition :
+    </label>
+
+    <input type="text" name="Edition" value="@Model.Edition" />
+
+    <label>
+        ISBN :
+    </label>
+
+    <input type="text" name="Isbn" value="@Model.Isbn" />
+
+    <label>
+        Date d'édition :
+    </label>
+
+    <input type="text" name="DateEdition" value="@Model.DateEdition" />
+
+    <label>
+        Date de lecture :
+    </label>
+
+    <input type="text" name="DateLecture" value="@Model.DateLecture" />
+
+    <label>
+        Note :
+    </label>
+
+    <input type="text" name="Note" value="@Model.Note" />
+
+
+    <label>
+        Resume :
+    </label>
+
+    <input type="text" name="Resume" value="@Model.Resume" />
+
+
+    <label>
+        Commentaire :
+    </label>
+
+    <input type="text" name="Commentaire" value="@Model.Commentaire" />
+
+    <input type="submit" value="Confirmer" />
+</form>

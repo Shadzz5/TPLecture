@@ -7,17 +7,18 @@
 
 
 <h1>Lecture</h1>
-<form action="ConfirmationModif" method="post">
+<form action="/Admin/ConfirmationModif" method="post">
 
     <label>
         Identifiant : @Model.Livre.Identifiant
     </label>
+    <input type="hidden" value="@Model.Livre.Identifiant" name="Identifiant"/>
 
     <label>
         Nombre de pages :
     </label>
 
-    <input type="text" name="NombresPages" value="@Model.Livre.NombrePages" />
+    <input type="text" name="NombrePages" value="@Model.Livre.NombrePages" />
 
     <label>
         Titre :
@@ -35,7 +36,7 @@
         ISBN :
     </label>
 
-    <input type="text" name="ISBN" value="@Model.Livre.Isbn" />
+    <input type="text" name="Isbn" value="@Model.Livre.Isbn" />
 
     <label>
         Date d'édition :
@@ -69,6 +70,6 @@
 
     <input type="text" name="Commentaire" value="@Model.Livre.Commentaire" />
 
-    <input type="submit" formaction="ConfirmationModif" value="Confirmer" />
+    <input type="submit" value="Confirmer" />
 </form>
 
