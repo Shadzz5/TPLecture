@@ -1,0 +1,15 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+@model IndexAdminViewModel
+
+<h1>@Model.Titre</h1>
+@foreach (Livre l in Model.Livres)
+{
+    <ul>
+        <li><a href="Admin/Lecture/@l.Identifiant">@l.Titre</a></li>
+    </ul>
+
+}
+<a>Ajouter</a>

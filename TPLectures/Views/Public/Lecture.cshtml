@@ -1,0 +1,21 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+@model LecturePublicViewModel
+<h1>Lecture</h1>
+<ul>
+    <li>Identifiant : @Model.Livre.Identifiant</li>
+    <li>Nombre de pages : @Model.Livre.NombresPages</li>
+    <li>Titre : @Model.Livre.Titre</li>
+    <li>Edition : @Model.Livre.Edition</li>
+    <li>ISBN : @Model.Livre.ISBN</li>
+    <li>Date d'édition : @Model.Livre.DateEdition</li>
+    <li>Date de lecture : @Model.Livre.DateLecture.ToShortDateString()</li>
+    <li>Note : @Model.Livre.Note</li>
+    <li>Resume : @Model.Livre.Resume</li>
+    <li>Commentaire : @Model.Livre.Commentaire</li>
+
+</ul>
+
+

@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+@model LectureAdminViewModel
+<h1>Lecture</h1>
+<ul>
+    <li>Identifiant : @Model.Livre.Identifiant</li>
+    <li>Nombre de pages : @Model.Livre.NombrePages</li>
+    <li>Titre : @Model.Livre.Titre</li>
+    <li>Edition : @Model.Livre.Edition</li>
+    <li>ISBN : @Model.Livre.Isbn</li>
+    <li>Date d'édition : @Model.Livre.DateEdition</li>
+    <li>Date de lecture : @Model.Livre.DateLecture</li>
+    <li>Note : @Model.Livre.Note</li>
+    <li>Resume : @Model.Livre.Resume</li>
+    <li>Commentaire : @Model.Livre.Commentaire</li>
+
+</ul>
+
+<a href="/Admin/Delete/@Model.Livre.Identifiant">Supprimer</a>
+<a href="/Admin/Modifier/@Model.Livre.Identifiant">Modifier</a>

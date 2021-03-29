@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model IndexPublicViewModel
+
+<h1>@Model.Titre</h1>
+@foreach (Livre l in Model.Livres)
+{
+<ul>
+    <li><a href="Public/Lecture/@l.Identifiant">@l.Titre</a></li>
+</ul>
+   
+}

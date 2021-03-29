@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+@model ModifierAdminViewModel
+<h1>Modifier</h1>
+
+
+<h1>Lecture</h1>
+<form action="ConfirmationModif" method="post">
+
+    <label>
+        Identifiant : @Model.Livre.Identifiant
+    </label>
+
+    <label>
+        Nombre de pages :
+    </label>
+
+    <input type="text" name="NombresPages" value="@Model.Livre.NombresPages" />
+
+    <label>
+        Titre :
+    </label>
+
+    <input type="text" name="Titre" value="@Model.Livre.Titre" />
+
+    <label>
+        Edition :
+    </label>
+
+    <input type="text" name="Edition" value="@Model.Livre.Edition" />
+
+    <label>
+        ISBN :
+    </label>
+
+    <input type="text" name="ISBN" value="@Model.Livre.Isbn" />
+
+    <label>
+        Date d'édition :
+    </label>
+
+    <input type="text" name="DateEdition" value="@Model.Livre.DateEdition" />
+
+    <label>
+        Date de lecture :
+    </label>
+
+    <input type="text" name="DateLecture" value="@Model.Livre.DateLecture" />
+
+    <label>
+        Note :
+    </label>
+
+    <input type="text" name="Note" value="@Model.Livre.Note" />
+
+
+    <label>
+        Resume :
+    </label>
+
+    <input type="text" name="Resume" value="@Model.Livre.Resume" />
+
+
+    <label>
+        Commentaire :
+    </label>
+
+    <input type="text" name="Commentaire" value="@Model.Livre.Commentaire" />
+
+    <input type="submit" formaction="ConfirmationModif" value="Confirmer" />
+</form>
+

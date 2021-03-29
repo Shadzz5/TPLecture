@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture</title>
+
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/style.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+           
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <h1>Salut a tous</h1>
+                        <a href="/Home/Index">Accueil</a>
+                        <a href="/Public">Liste des lectures</a> 
+                        <a href="/Admin">Accès admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/fontawesome/js/all.min.js"></script>
+    <script src="~/script.js"></script>
+</body>
+</html>
