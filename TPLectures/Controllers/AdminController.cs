@@ -13,7 +13,7 @@ namespace TPLectures.Controllers
         LecturesContext context = new LecturesContext();
         public IActionResult Index()
         {
-            
+
             List<Livre> livres = context.Livre.ToList();
             String titre = "Accès administration";
 
@@ -41,7 +41,9 @@ namespace TPLectures.Controllers
         }
         public IActionResult Delete(int id)
         {
-            context.Remove(id);
+
+            context.Remove(context.Livre.Find(id));
+            context.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -57,7 +59,15 @@ namespace TPLectures.Controllers
         [HttpPost]
         public IActionResult ConfirmationModif(Livre livre)
         {
-            context.Add(livre);
+            if (livre != null)
+            {
+                context.Add(context.Livre.Find(livre));
+                context.SaveChanges();
+            }
+
+
+
+
             return RedirectToAction("Index");
         }
     }
