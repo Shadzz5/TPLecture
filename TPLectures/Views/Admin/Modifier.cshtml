@@ -1,75 +1,105 @@
-﻿
-@{
+﻿@{
     Layout = "_Layout";
 }
 @model ModifierAdminViewModel
-<h1>Modifier</h1>
 
 
-<h1>Lecture</h1>
-<form action="/Admin/ConfirmationModif" method="post">
+<h1>Modifier un livre</h1>
 
-    <label>
-        Identifiant : @Model.Livre.Identifiant
-    </label>
-    <input type="hidden" value="@Model.Livre.Identifiant" name="Identifiant"/>
+<form asp-action="ConfirmationModif" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="mb-3">
+        <label class="form-label">
+            Identifiant : @Model.Identifiant
+        </label>
+        <input type="hidden" value="@Model.Identifiant" name="Identifiant" />
+    </div>
 
-    <label>
-        Nombre de pages :
-    </label>
+    <div class="mb-3">
+        <label asp-for="NombrePages" class="form-label">
+            Nombre de pages :
+        </label>
 
-    <input type="text" name="NombrePages" value="@Model.Livre.NombrePages" />
+        <input type="text" asp-for="NombrePages" value="@Model.NombrePages" />
+        <span asp-validation-for="NombrePages" class="text-danger"></span>
+    </div>
 
-    <label>
-        Titre :
-    </label>
+    <div class="mb-3">
+        <label asp-for="Titre" class="form-label">
+            Titre :
+        </label>
 
-    <input type="text" name="Titre" value="@Model.Livre.Titre" />
+        <input type="text" asp-for="Titre" value="@Model.Titre" />
+        <span asp-validation-for="Titre" class="text-danger"></span>
+    </div>
 
-    <label>
-        Edition :
-    </label>
+    <div class="mb-3">
+        <label asp-for="Edition" class="form-label">
+            Edition :
+        </label>
 
-    <input type="text" name="Edition" value="@Model.Livre.Edition" />
+        <input type="text" asp-for="Edition" value="@Model.Edition" />
+        <span asp-validation-for="Edition" class="text-danger"></span>
+    </div>
 
-    <label>
-        ISBN :
-    </label>
+    <div class="mb-3">
 
-    <input type="text" name="Isbn" value="@Model.Livre.Isbn" />
+        <label asp-for="Isbn" class="form-label">
+            ISBN :
+        </label>
 
-    <label>
-        Date d'édition :
-    </label>
+        <input type="text" asp-for="Isbn" value="@Model.Isbn" />
+        <span asp-validation-for="Isbn" class="text-danger"></span>
+    </div>
 
-    <input type="text" name="DateEdition" value="@Model.Livre.DateEdition" />
+    <div class="mb-3">
+        <label asp-for="DateEdition" class="form-label">
+            Date d'édition :
+        </label>
 
-    <label>
-        Date de lecture :
-    </label>
+        <input type="text" asp-for="DateEdition" value="@Model.DateEdition" />
+        <span asp-validation-for="DateEdition" class="text-danger"></span>
+    </div>
 
-    <input type="text" name="DateLecture" value="@Model.Livre.DateLecture" />
+    <div class="mb-3">
 
-    <label>
-        Note :
-    </label>
+        <label asp-for="DateLecture" class="form-label">
+            Date de lecture :
+        </label>
 
-    <input type="text" name="Note" value="@Model.Livre.Note" />
+        <input type="text" asp-for="DateLecture" value="@Model.DateLecture.Value.ToShortDateString()" />
+        <span asp-validation-for="DateLecture" class="text-danger"></span>
+    </div>
 
+    <div class="mb-3">
 
-    <label>
-        Resume :
-    </label>
+        <label asp-for="Note" class="form-label">
+            Note :
+        </label>
 
-    <input type="text" name="Resume" value="@Model.Livre.Resume" />
+        <input type="text" asp-for="Note" value="@Model.Note" />
+        <span asp-validation-for="Note" class="text-danger"></span>
 
+    </div>
 
-    <label>
-        Commentaire :
-    </label>
+    <div class="mb-3">
 
-    <input type="text" name="Commentaire" value="@Model.Livre.Commentaire" />
+        <label asp-for="Resume" class="form-label">
+            Resume :
+        </label>
+
+        <input type="text" asp-for="Resume" value="@Model.Resume" />
+        <span asp-validation-for="Resume" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Commentaire" class="form-label">
+            Commentaire :
+        </label>
+
+        <input type="text" asp-for="Commentaire" value="@Model.Commentaire" />
+        <span asp-validation-for="Commentaire" class="text-danger"></span>
+    </div>
 
     <input type="submit" value="Confirmer" />
 </form>
-

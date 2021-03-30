@@ -3,6 +3,7 @@
 }
 @model AjouterAdminViewModel
 
+<h1>Ajouter un livre</h1>
 <form asp-action="ConfirmationAjout" method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="mb-3">
@@ -36,7 +37,7 @@
         </label>
 
         <input type="text" asp-for="Edition" value="@Model.Edition" />
-        <span asp-validation-for="NombrePages" class="text-danger"></span>
+        <span asp-validation-for="Edition" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
@@ -64,7 +65,7 @@
             Date de lecture :
         </label>
 
-        <input type="text" asp-for="DateLecture" value="@Model.DateLecture" />
+        <input type="text" asp-for="DateLecture" value="@Model.DateLecture.Value.ToShortDateString()" />
         <span asp-validation-for="DateLecture" class="text-danger"></span>
     </div>
 

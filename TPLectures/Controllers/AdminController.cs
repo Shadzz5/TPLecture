@@ -50,10 +50,18 @@ namespace TPLectures.Controllers
         public IActionResult Modifier(int id)
         {
             Livre livre = context.Livre.Find(id);
-            String titre = "Un livre";
             ModifierAdminViewModel model = new ModifierAdminViewModel();
             model.Livre = livre;
-            model.Titre = titre;
+            model.Identifiant = livre.Identifiant;
+            model.Titre = livre.Titre;
+            model.NombrePages = livre.NombrePages;
+            model.Isbn = livre.Isbn;
+            model.Note = livre.Note;
+            model.DateEdition = livre.DateEdition;
+            model.DateLecture = livre.DateLecture;
+            model.Edition = livre.Edition;
+            model.Resume = livre.Resume;
+            model.Commentaire = livre.Commentaire;
             return View(model);
         }
         [HttpPost]
