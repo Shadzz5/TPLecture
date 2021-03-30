@@ -67,7 +67,7 @@
             Date de lecture :
         </label>
 
-        <input type="text" asp-for="DateLecture" value="@Model.DateLecture.Value.ToShortDateString()" />
+        <input type="text" asp-for="DateLecture" value="@Model.DateLecture" />
         <span asp-validation-for="DateLecture" class="text-danger"></span>
     </div>
 

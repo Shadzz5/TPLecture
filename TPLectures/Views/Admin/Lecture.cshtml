@@ -2,7 +2,7 @@
 @{
     Layout = "_Layout";
 }
-@model LectureAdminViewModel
+@model LecturePublicViewModel
 <h1>Lecture</h1>
 <ul>
     <li>Identifiant : @Model.Livre.Identifiant</li>
@@ -11,12 +11,35 @@
     <li>Edition : @Model.Livre.Edition</li>
     <li>ISBN : @Model.Livre.Isbn</li>
     <li>Date d'édition : @Model.Livre.DateEdition</li>
-    <li>Date de lecture : @Model.Livre.DateLecture.Value.ToShortDateString()</li>
+    <li>Date de lecture : @Model.Livre.DateLecture</li>
     <li>Note : @Model.Livre.Note</li>
     <li>Resume : @Model.Livre.Resume</li>
     <li>Commentaire : @Model.Livre.Commentaire</li>
 
 </ul>
 
-<a href="/Admin/Delete/@Model.Livre.Identifiant">Supprimer</a>
-<a href="/Admin/Modifier/@Model.Livre.Identifiant">Modifier</a>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Suppression">
+    Supprimer
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="Suppression" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Suppresion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Voulez vous supprimer se livre !
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                <a class="btn btn-success" asp-action="Delete" asp-route-id="@Model.Livre.Identifiant">Oui</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a class="btn btn-success" asp-action="Modifier" asp-route-id="@Model.Livre.Identifiant">Modifier</a>

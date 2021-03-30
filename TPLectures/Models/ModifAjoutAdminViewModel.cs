@@ -21,7 +21,7 @@ namespace TPLectures.Web.Models
         [Required(ErrorMessage = "Une édition est obligatoire")]
         public string Edition { get; set; }
 
-
+        [MaxLength(13,ErrorMessage ="L'ISBN est trop long")]
         [Required(ErrorMessage = "L'ISBN est obligatoire !!")]
         public string Isbn { get; set; }
 
