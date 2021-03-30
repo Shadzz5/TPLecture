@@ -50,7 +50,7 @@ namespace TPLectures.Controllers
         public IActionResult Modifier(int id)
         {
             Livre livre = context.Livre.Find(id);
-            ModifierAdminViewModel model = new ModifierAdminViewModel();
+            ModifAjoutAdminViewModel model = new ModifAjoutAdminViewModel();
             model.Livre = livre;
             model.Identifiant = livre.Identifiant;
             model.Titre = livre.Titre;
@@ -84,7 +84,7 @@ namespace TPLectures.Controllers
             
             
             Livre livre = new Livre();
-            AjouterAdminViewModel model = new AjouterAdminViewModel();
+            ModifAjoutAdminViewModel model = new ModifAjoutAdminViewModel();
             model.Identifiant = livre.Identifiant;
             model.Titre = livre.Titre;
             model.NombrePages = livre.NombrePages;

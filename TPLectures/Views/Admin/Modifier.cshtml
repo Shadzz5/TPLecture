@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "_Layout";
 }
-@model ModifierAdminViewModel
+@model ModifAjoutAdminViewModel
 
 
 <h1>Modifier un livre</h1>
@@ -103,3 +103,7 @@
 
     <input type="submit" value="Confirmer" />
 </form>
+
+@section Scripts{
+   <partial name="_ValidationScriptsPartial" />
+}

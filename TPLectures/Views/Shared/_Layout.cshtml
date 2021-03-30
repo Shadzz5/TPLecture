@@ -34,7 +34,7 @@
         @RenderBody()
     </div>
     <script src="~/lib/jquery/jquery.min.js"></script>
-    <partial name="_ValidationScriptsPartial"/>
+    @RenderSection("Scripts",required: false)
     <script src="~/lib/fontawesome/js/all.min.js"></script>
     <script src="~/script.js"></script>
 </body>

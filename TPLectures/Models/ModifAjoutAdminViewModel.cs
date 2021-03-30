@@ -7,8 +7,9 @@ using TPLectureDB.EF.Models;
 
 namespace TPLectures.Web.Models
 {
-    public class AjouterAdminViewModel
+    public class ModifAjoutAdminViewModel
     {
+        public Livre Livre { get; set; }
 
         [Required(ErrorMessage = "Un titre est obligatoire")]
         public String Titre { get; set; }
@@ -17,10 +18,10 @@ namespace TPLectures.Web.Models
         [Required(ErrorMessage = "Un numéro de page est obligatoire")]
         public int NombrePages { get; set; }
 
-        [Required(ErrorMessage="Une édition est obligatoire")]
+        [Required(ErrorMessage = "Une édition est obligatoire")]
         public string Edition { get; set; }
-       
-        
+
+
         [Required(ErrorMessage = "L'ISBN est obligatoire !!")]
         public string Isbn { get; set; }
 

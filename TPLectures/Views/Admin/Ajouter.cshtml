@@ -1,7 +1,7 @@
-﻿@{ 
+﻿@{
     Layout = "_Layout";
 }
-@model AjouterAdminViewModel
+@model ModifAjoutAdminViewModel
 
 <h1>Ajouter un livre</h1>
 <form asp-action="ConfirmationAjout" method="post">
@@ -10,7 +10,7 @@
         <label class="form-label">
             Identifiant : @Model.Identifiant
         </label>
-        <input type="hidden" value="@Model.Identifiant" name="Identifiant"/>
+        <input type="hidden" value="@Model.Identifiant" name="Identifiant" />
     </div>
 
     <div class="mb-3">
@@ -22,8 +22,8 @@
         <span asp-validation-for="NombrePages" class="text-danger"></span>
     </div>
 
-    <div class="mb-3" >
-        <label asp-for="Titre"  class="form-label">
+    <div class="mb-3">
+        <label asp-for="Titre" class="form-label">
             Titre :
         </label>
 
@@ -65,7 +65,7 @@
             Date de lecture :
         </label>
 
-        <input type="text" asp-for="DateLecture" value="@Model.DateLecture.Value.ToShortDateString()" />
+        <input type="text" asp-for="DateLecture" value="@Model.DateLecture" />
         <span asp-validation-for="DateLecture" class="text-danger"></span>
     </div>
 
@@ -99,5 +99,11 @@
         <span asp-validation-for="Commentaire" class="text-danger"></span>
     </div>
 
-        <input type="submit" value="Confirmer" />
+    <input type="submit" value="Confirmer" />
 </form>
+
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
