@@ -1,0 +1,33 @@
+﻿@model CommentaireViewModel
+
+
+<h1>Modifier un livre</h1>
+
+<form asp-action="ConfirmationModif" method="post">
+
+
+    <div class="mb-3">
+        <label asp-for="Pseudo" class="form-label">
+            Peudo :
+        </label>
+
+        <input type="text" asp-for="Pseudo" value="@Model.Pseudo" />
+        <span asp-validation-for="Pseudo" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Commentaire1" class="form-label">
+            Commentaire1 :
+        </label>
+
+        <textarea asp-for="Commentaire1" value="@Model.Commentaire1" />
+        <span asp-validation-for="Commentaire1" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Timepublication" class="form-label">
+            Commentaire1 :
+        </label>
+
+        <input type="hidden" asp-for="Timepublication" value="@Model.Timepublication" />
+        <span asp-validation-for="Timepublication" class="text-danger"></span>
+    </div>
+</form>

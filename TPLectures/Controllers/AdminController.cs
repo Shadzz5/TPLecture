@@ -10,7 +10,7 @@ namespace TPLectures.Controllers
 {
     public class AdminController : Controller
     {
-        LecturesContext context = new LecturesContext();
+        lecturesContext context = new lecturesContext();
         public IActionResult Index()
         {
 
@@ -61,7 +61,6 @@ namespace TPLectures.Controllers
             model.DateLecture = livre.DateLecture;
             model.Edition = livre.Edition;
             model.Resume = livre.Resume;
-            model.Commentaire = livre.Commentaire;
             return View(model);
         }
         [HttpPost]
@@ -94,7 +93,6 @@ namespace TPLectures.Controllers
             model.DateLecture = livre.DateLecture;
             model.Edition = livre.Edition;
             model.Resume = livre.Resume;
-            model.Commentaire = livre.Commentaire;
             return View(model);
         }
         public IActionResult ConfirmationAjout(Livre livre)

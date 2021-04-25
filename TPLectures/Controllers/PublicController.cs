@@ -10,7 +10,7 @@ namespace TPLectures.Web.Controllers
 {
     public class PublicController : Controller
     {
-        LecturesContext context = new LecturesContext();
+        lecturesContext context = new lecturesContext();
         public IActionResult Index()
         {
             List<Livre> livres = context.Livre.ToList();
@@ -25,6 +25,7 @@ namespace TPLectures.Web.Controllers
         public IActionResult Lecture(int id)
         {
             Livre livre = context.Livre.Find(id);
+            
             String titre = "Un livre";
             if (livre == null)
             {
@@ -36,5 +37,19 @@ namespace TPLectures.Web.Controllers
 
             return View(model);
         }
+        public IActionResult Commentaire(int id)
+        {
+            Commentaire commentaire = context.Commentaire.Find(id);
+            CommentaireViewModel model = new CommentaireViewModel();
+            model.Commentaire = commentaire;
+            model.Identifiant = commentaire.Identifiant;
+            model.IdentifiantLivre = commentaire.IdentifiantLivre;
+            model.IdentifiantLivreNavigation = commentaire.IdentifiantLivreNavigation;
+            model.Pseudo = commentaire.Pseudo;
+            model.Timepublication = commentaire.Timepublication;
+            model.Commentaire1 = commentaire.Commentaire1;
+            return View(model);
+        }
+        
     }
 }

@@ -26,7 +26,7 @@ namespace TPLectures.Web.Models
         public string Isbn { get; set; }
 
         [Required(ErrorMessage = "Une date d'édition est obligatoire")]
-        public short DateEdition { get; set; }
+        public DateTime DateEdition { get; set; }
 
         [Required(ErrorMessage = "Une date de lecture est obligatoire")]
         public DateTime? DateLecture { get; set; }
@@ -36,7 +36,7 @@ namespace TPLectures.Web.Models
 
         [Required(ErrorMessage = "Un résumer est obligatoire")]
         public string Resume { get; set; }
-        public string Commentaire { get; set; }
+       
 
     }
 }
