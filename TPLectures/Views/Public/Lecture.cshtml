@@ -17,13 +17,13 @@
 </ul>
 @foreach (Commentaire c in Model.Commentaires)
 {
-    <ul>
-        Commentaire
+    
+<h2>Commentaire</h2>
         <p>Pseudo : @c.Pseudo</p>
         <p>Commentaire :@c.Commentaire1</p>
-    </ul>
+    
 
 }
 
-<a class="btn btn-success" asp-action="CommentaireView" asp-route-id="@Model.Commentaire.IdentifiantLivre">Commentaire</a>
+<a class="btn btn-success" asp-action="Commentaire">Commentaire</a>
 

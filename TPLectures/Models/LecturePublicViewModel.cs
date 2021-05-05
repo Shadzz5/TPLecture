@@ -19,6 +19,7 @@ namespace TPLectures.Web.Models
         public DateTime Datepublication { get; set; }
         public TimeSpan Timepublication { get; set; }
         public int IdentifiantLivre { get; set; }
+        public virtual ICollection<Commentaire> CommentaireNavigation { get; set; }
 
         public virtual Livre IdentifiantLivreNavigation { get; set; }
     }

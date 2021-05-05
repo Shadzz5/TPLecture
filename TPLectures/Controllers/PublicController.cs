@@ -35,14 +35,13 @@ namespace TPLectures.Web.Controllers
             model.Livre = livre;
             model.Commentaires = commentaires;
             model.Titre = titre;
+            
 
             return View(model);
         }
         public IActionResult Commentaire(int id)
         {
             Commentaire commentaire = new Commentaire();
-            Livre livre = context.Livre.Find(id);
-            livre.Identifiant = commentaire.IdentifiantLivre; 
             LecturePublicViewModel model = new LecturePublicViewModel();
             model.Commentaire = commentaire;
             model.Identifiant = commentaire.Identifiant;
@@ -55,15 +54,12 @@ namespace TPLectures.Web.Controllers
         }
         public IActionResult ConfirmationCommentaire(Commentaire commentaire)
         {
-           
             if (commentaire != null)
             {
                 context.Add(commentaire);
+
                 context.SaveChanges();
             }
-
-
-
 
             return RedirectToAction("Index");
         }
