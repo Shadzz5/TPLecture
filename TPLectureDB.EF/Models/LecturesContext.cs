@@ -37,7 +37,7 @@ namespace TPLectureDB.EF.Models
                 entity.ToTable("commentaire");
 
                 entity.HasIndex(e => e.IdentifiantLivre)
-                    .HasName("fk_commantaire_livre");
+                    .HasName("fk_commentaire_livre");
 
                 entity.Property(e => e.Identifiant).HasColumnType("int(11)");
 
@@ -61,7 +61,7 @@ namespace TPLectureDB.EF.Models
                 entity.HasOne(d => d.IdentifiantLivreNavigation)
                     .WithMany(p => p.CommentaireNavigation)
                     .HasForeignKey(d => d.IdentifiantLivre)
-                    .HasConstraintName("fk_commantaire_livre");
+                    .HasConstraintName("fk_commentaire_livre");
             });
 
             modelBuilder.Entity<Livre>(entity =>

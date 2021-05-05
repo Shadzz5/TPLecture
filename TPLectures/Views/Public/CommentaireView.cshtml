@@ -1,33 +1,27 @@
-﻿@model CommentaireViewModel
+﻿@{ 
+    Layout = "_Layout";
+}
+@model LecturePublicViewModel
 
 
-<h1>Modifier un livre</h1>
+<h1>Commentaire :</h1>
 
-<form asp-action="ConfirmationModif" method="post">
+<form asp-action="ConfirmationCommentaire" method="post">
 
 
     <div class="mb-3">
         <label asp-for="Pseudo" class="form-label">
             Peudo :
         </label>
+        <input class="form-control form-control-sm" type="text" asp-for="Pseudo" value="@Model.Pseudo">
 
-        <input type="text" asp-for="Pseudo" value="@Model.Pseudo" />
-        <span asp-validation-for="Pseudo" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label asp-for="Commentaire1" class="form-label">
-            Commentaire1 :
+            Commentaire :
         </label>
 
-        <textarea asp-for="Commentaire1" value="@Model.Commentaire1" />
-        <span asp-validation-for="Commentaire1" class="text-danger"></span>
+        <textarea class="form-control" asp-for="Commentaire1" rows="3" value="@Model.Commentaire1"></textarea>
     </div>
-    <div class="mb-3">
-        <label asp-for="Timepublication" class="form-label">
-            Commentaire1 :
-        </label>
-
-        <input type="hidden" asp-for="Timepublication" value="@Model.Timepublication" />
-        <span asp-validation-for="Timepublication" class="text-danger"></span>
-    </div>
+    <input type="submit" value="Confirmer" />
 </form>

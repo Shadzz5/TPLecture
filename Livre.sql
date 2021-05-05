@@ -23,9 +23,15 @@ CREATE TABLE Commentaire(
   `commentaire` text NOT NULL,
   `datepublication` DATE NOT NULL,
   `timepublication` TIME NOT NULL,
-  `IdentifiantLivre` int(11) NOT NULL,  PRIMARY KEY (`Identifiant`)
+  `IdentifiantLivre` int(11) NOT NULL,  
+  PRIMARY KEY (`Identifiant`)
 )ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
 
-ALTER Table Commentaire ADD CONSTRAINT fk_commantaire_livre     FOREIGN KEY(IdentifiantLivre) 
-            REFERENCES Livre (Identifiant)
-            ON DELETE CASCADE;
+ALTER TABLE Commentaire ADD CONSTRAINT fk_commentaire_livre     
+FOREIGN KEY(`IdentifiantLivre`) 
+REFERENCES `Livre` (`Identifiant`)
+ON DELETE CASCADE;
+
+
+INSERT INTO Commentaire(pseudo, commentaire, datepublication,timepublication,IdentifiantLivre)
+VALUES("Kévin","sdsds", "2020-01-12","10:00",1);

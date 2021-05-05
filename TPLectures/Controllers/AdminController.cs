@@ -80,8 +80,6 @@ namespace TPLectures.Controllers
         }
         public IActionResult Ajouter()
         {
-            
-            
             Livre livre = new Livre();
             ModifAjoutAdminViewModel model = new ModifAjoutAdminViewModel();
             model.Identifiant = livre.Identifiant;

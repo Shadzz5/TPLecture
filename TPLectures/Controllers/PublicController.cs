@@ -25,7 +25,7 @@ namespace TPLectures.Web.Controllers
         public IActionResult Lecture(int id)
         {
             Livre livre = context.Livre.Find(id);
-            
+            List<Commentaire> commentaires = context.Commentaire.ToList();
             String titre = "Un livre";
             if (livre == null)
             {
@@ -33,23 +33,39 @@ namespace TPLectures.Web.Controllers
             }
             LecturePublicViewModel model = new LecturePublicViewModel();
             model.Livre = livre;
+            model.Commentaires = commentaires;
             model.Titre = titre;
 
             return View(model);
         }
         public IActionResult Commentaire(int id)
         {
-            Commentaire commentaire = context.Commentaire.Find(id);
-            CommentaireViewModel model = new CommentaireViewModel();
+            Commentaire commentaire = new Commentaire();
+            Livre livre = context.Livre.Find(id);
+            livre.Identifiant = commentaire.IdentifiantLivre; 
+            LecturePublicViewModel model = new LecturePublicViewModel();
             model.Commentaire = commentaire;
             model.Identifiant = commentaire.Identifiant;
             model.IdentifiantLivre = commentaire.IdentifiantLivre;
-            model.IdentifiantLivreNavigation = commentaire.IdentifiantLivreNavigation;
             model.Pseudo = commentaire.Pseudo;
+            model.Datepublication = commentaire.Datepublication.Date;
             model.Timepublication = commentaire.Timepublication;
             model.Commentaire1 = commentaire.Commentaire1;
             return View(model);
         }
-        
+        public IActionResult ConfirmationCommentaire(Commentaire commentaire)
+        {
+           
+            if (commentaire != null)
+            {
+                context.Add(commentaire);
+                context.SaveChanges();
+            }
+
+
+
+
+            return RedirectToAction("Index");
+        }
     }
 }
