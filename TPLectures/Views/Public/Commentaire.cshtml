@@ -1,14 +1,18 @@
 ﻿@{ 
     Layout = "_Layout";
 }
-@model LecturePublicViewModel
-
+@model CommentaireViewModel
 
 <h1>Commentaire :</h1>
 
 <form asp-action="ConfirmationCommentaire" method="post">
 
-
+    <div class="mb-3">
+        <label class="form-label">
+            Identifiant : @Model.IdentifiantLivre
+        </label>
+        <input type="hidden" value="@Model.IdentifiantLivre" name="IdentifiantLivre" />
+    </div>
     <div class="mb-3">
         <label asp-for="Pseudo" class="form-label">
             Peudo :
@@ -23,5 +27,5 @@
 
         <textarea class="form-control" asp-for="Commentaire1" rows="3" value="@Model.Commentaire1"></textarea>
     </div>
-    <input type="submit" value="Confirmer"/>
+    <input type="submit" value="Confirmer" />
 </form>

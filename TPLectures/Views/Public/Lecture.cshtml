@@ -15,15 +15,33 @@
     <li>Resume : @Model.Livre.Resume</li>
 
 </ul>
+<h2>Commentaire</h2>
 @foreach (Commentaire c in Model.Commentaires)
 {
-    
-<h2>Commentaire</h2>
-        <p>Pseudo : @c.Pseudo</p>
-        <p>Commentaire :@c.Commentaire1</p>
-    
+
+    <table>
+        <tr>
+            <td>Date de publication : @c.Datepublication.ToShortDateString()</td>
+
+        </tr>
+        <tr>
+
+            <td>Pseudo : @c.Pseudo</td>
+
+        </tr>
+        <tr>
+
+            <td>Commentaire :@c.Commentaire1</td>
+            <hr />
+        </tr>
+
+
+
+    </table>
+
+
 
 }
-
-<a class="btn btn-success" asp-action="Commentaire">Commentaire</a>
+<br />
+<a class="btn btn-success" asp-action="Commentaire" asp-route-id="@Model.Livre.Identifiant">Commentaire</a>
 

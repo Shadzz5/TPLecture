@@ -11,6 +11,7 @@ namespace TPLectures.Web.Controllers
     public class PublicController : Controller
     {
         lecturesContext context = new lecturesContext();
+        public Livre livre { get; set; }
         public IActionResult Index()
         {
             List<Livre> livres = context.Livre.ToList();
@@ -42,14 +43,12 @@ namespace TPLectures.Web.Controllers
         public IActionResult Commentaire(int id)
         {
             Commentaire commentaire = new Commentaire();
-            LecturePublicViewModel model = new LecturePublicViewModel();
-            model.Commentaire = commentaire;
-            model.Identifiant = commentaire.Identifiant;
-            model.IdentifiantLivre = commentaire.IdentifiantLivre;
+            CommentaireViewModel model = new CommentaireViewModel();
+            DateTime dateTime = DateTime.Now;
+            model.IdentifiantLivre = id;
             model.Pseudo = commentaire.Pseudo;
-            model.Datepublication = commentaire.Datepublication.Date;
-            model.Timepublication = commentaire.Timepublication;
             model.Commentaire1 = commentaire.Commentaire1;
+            model.Datepublication = dateTime;
             return View(model);
         }
         public IActionResult ConfirmationCommentaire(Commentaire commentaire)
